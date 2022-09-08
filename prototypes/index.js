@@ -16,66 +16,44 @@ const { dinosaurs, humans, movies } = require('./datasets/dinosaurs');
 // SINGLE DATASETS
 // =================================================================
 
-// DATASET: kitties from ./datasets/kitties
+// DATASETS: kitties from ./datasets/kitties & puppers from ./datasets/puppers
 const kittyPrompts = {
-  orangePetNames() {
-    // Return an array of just the names of kitties who are orange e.g.
-        // ['Tiger', 'Snickers']
 
-        /* CODE GOES HERE */
-
+  orangePetNames(animals) {
+    let orangeAnimalNames = animals
+      .filter(animal=> animal.color === 'orange')
+      .map(animal => animal.name);
+      return orangeAnimalNames;
+    },
     // Annotation:
     // Write your annotation here as a comment
+
+  sortByAge(animals) {
+    let sortAnimalsByAge = animals
+      .sort((firstAnimal, lastAnimal) => {
+        return lastAnimal.age - firstAnimal.age
+      });
+        return sortAnimalsByAge;   
   },
+      // Annotation:
+      // Write your annotation here as a comment
 
-  sortByAge() {
-    // Sort the kitties by their age
-
-    /* CODE GOES HERE */
-
-    // Annotation:
-    // Write your annotation here as a comment
-  },
-
-  growUp() {
-    // Return an array of kitties who have all grown up by 2 years e.g.
-    // [{
-    //   name: 'Felicia',
-    //   age: 4,
-    //   color: 'grey'
-    // },
-    // {
-    //   name: 'Tiger',
-    //   age: 7,
-    //   color: 'orange'
-    // },
-    // ...etc]
-
-    /* CODE GOES HERE */
+  growUp(animals) {
+    let ageAnimals = animals
+      .filter(animal => animal.age += 2)
+      .map(animal => animal)
+      return ageAnimals;
   }
+
 };
 
-// PLEASE READ-----------------------
-// Currently, your functions are probably using the `kitties` global import variable.
-// refactor the above functions using arguments and parameters so that
-// they can perform the same utility
-// for the kitties or puppers datasets, depending on what arguments you send through.
-
 
 // ---------------------------------------------------------------------------
-// ---------------------------------------------------------------------------
-// ---------------------------------------------------------------------------
-// ---------------------------------------------------------------------------
-// ---------------------------------------------------------------------------
-
-
-
-
 
 
 // DATASET: clubs from ./datasets/clubs
 const clubPrompts = {
-  membersBelongingToClubs() {
+  membersBelongingToClubs(clubTypes) {
     // Your function should access the clubs data through a parameter (it is being passed as an argument in the test file)
     // Create an object whose keys are the names of people, and whose values are
     // arrays that include the names of the clubs that person is a part of. e.g.
@@ -86,6 +64,7 @@ const clubPrompts = {
     // }
 
     /* CODE GOES HERE */
+
 
     // Annotation:
     // Write your annotation here as a comment
@@ -122,6 +101,10 @@ const modPrompts = {
 
     /* CODE GOES HERE */
 
+    const numberOfStudentsPerInstructor = mods.map(mod => {
+        return { mod: mod.mod, studentsPerInstructor: (mod.students / mod.instructors)} 
+      })
+    return numberOfStudentsPerInstructor
     // Annotation:
     // Write your annotation here as a comment
   }
@@ -153,7 +136,19 @@ const cakePrompts = {
     //    { flavor: 'yellow', inStock: 14 },
     //    ..etc
     // ]
-
+    const flavorsInStock = cakes.reduce((currentCakes, cake) => {
+// I want to iterate through the array of cake objects and return only the cake flavor and how many are in stock
+// For each object insice the array we need to access the values of cakeFlavor and inStock and collect them into a different object
+// then each of those object need to be pushed in the currentCakes array
+// cake.cakeFlavor and cake.inStock
+      const availableCakes = {
+        flavor: cake.cakeFlavor,
+        inStock: cake.inStock
+      }
+      currentCakes.push(availableCakes)
+      return currentCakes
+    }, [])
+    return flavorsInStock;
     /* CODE GOES HERE */
 
     // Annotation:
@@ -181,8 +176,20 @@ const cakePrompts = {
     // ..etc
     // ]
 
-    /* CODE GOES HERE */
+    // I want to iterate through the array of cake and check to see if the inStock key is > 0
+    // I want to return only the cakes that are > 0 and push them into a new array
 
+    const cakesInStock = cakes.filter(cake => cake.inStock > 0)
+    return cakesInStock
+    // const cakesInStock = cakes.reduce((inStockCakes, cake) => {
+    //   if (cake.inStock > 0) {
+    //     inStockCakes.push(cake)
+    //   }
+    //   return inStockCakes
+    // }, [])
+
+    // /* CODE GOES HERE */
+    // return cakesInStock
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -201,7 +208,22 @@ const cakePrompts = {
     // Return an array of all unique toppings (no duplicates) needed to bake
     // every cake in the dataset e.g.
     // ['dutch process cocoa', 'toasted sugar', 'smoked sea salt', 'berries', ..etc]
-
+  
+    // I want to iterate through the array of objects and then iterate through thr array of toppings
+    // I want to compare the toppings to make sure there are no duplicates
+    // I want to put all the unique topping in new array.
+    // so if the array includes that topping I want it to be discharged
+    const uniqueToppings = cakes.reduce((availableToppings, cake) => {
+      cake.toppings.forEach(topping => {
+        if(!availableToppings.includes(topping)) {
+          availableToppings.push(topping)
+        }
+      })
+      // console.log(availableToppings)
+      return availableToppings
+    }, [])
+    console.log(uniqueToppings)
+    return uniqueToppings
     /* CODE GOES HERE */
 
     // Annotation:
@@ -394,7 +416,21 @@ const nationalParksPrompts = {
     //}
 
     /* CODE GOES HERE */
-
+    const parksToVisit = nationalParks
+      .reduce((parksObject, park) => {
+        const visitedparks = nationalParks
+          .filter(park => park.visited === true)
+          .map(park => park.name)
+        const needToVisit = nationalParks
+          .filter(park => park.visited === false)
+          .map(park => park.name)
+        // console.log('1', visitedparks)
+        // console.log('2', needToVisit)
+        parksObject = `parksToVisit: ${needToVisit}, parksVisited: ${visitedparks}`
+        console.log('3', parksObject)
+        return parksObject
+      }, {})
+      return parksToVisit
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -453,40 +489,45 @@ const nationalParksPrompts = {
 
 // DATASET: breweries from ./datasets/breweries
 const breweryPrompts = {
+  // Return the total beer count of all beers for every brewery e.g.
+  // 40
   getBeerCount() {
-    // Return the total beer count of all beers for every brewery e.g.
-    // 40
-
-    /* CODE GOES HERE */
-
-    // Annotation:
-    // Write your annotation here as a comment
+    let totalBeerCount = breweries
+      .reduce((allBeers, breweryBeers) => {
+        return allBeers += breweryBeers.beers.length;
+      }, 0);
+      return totalBeerCount
   },
+  // Annotation:
+  // Write your annotation here as a comment
 
+
+  // Return an array of objects where each object has the name of a brewery
+  // and the count of the beers that brewery has e.g.
+  // [
+  //  { name: 'Little Machine Brew', beerCount: 12 },
+  //  { name: 'Ratio Beerworks', beerCount: 5},
+  // ...etc.
+  // ]
   getBreweryBeerCount() {
-    // Return an array of objects where each object has the name of a brewery
-    // and the count of the beers that brewery has e.g.
-    // [
-    //  { name: 'Little Machine Brew', beerCount: 12 },
-    //  { name: 'Ratio Beerworks', beerCount: 5},
-    // ...etc.
-    // ]
-
-    /* CODE GOES HERE */
-
-    // Annotation:
-    // Write your annotation here as a comment
+    const breweryBeerCount = breweries
+      .map(brewery => brewery.beers);
+    console.log(breweryBeerCount)
+    return breweryBeerCount;
   },
+  // Annotation:
+  // Write your annotation here as a comment
+
+  // Return the beer which has the highest ABV of all beers
+  // e.g.
+  // { name: 'Barrel Aged Nature\'s Sweater', type: 'Barley Wine', abv: 10.9, ibu: 40 }
 
   findHighestAbvBeer() {
-    // Return the beer which has the highest ABV of all beers
-    // e.g.
-    // { name: 'Barrel Aged Nature\'s Sweater', type: 'Barley Wine', abv: 10.9, ibu: 40 }
-
-    /* CODE GOES HERE */
-
-    // Annotation:
-    // Write your annotation here as a comment
+    const hightestABV = breweries.reduce((abvName, brewery) => {
+      abvName = brewery.beers.sort((firstBeer, lastBeer) => lastBeer.abv - firstBeer.abv)
+      return abvName[0]
+    }, {})
+    return hightestABV
   }
 };
 
@@ -657,8 +698,24 @@ const astronomyPrompts = {
 
     /* CODE GOES HERE */
 
-    // Annotation:
+    const constellationKeys = Object.keys(constellations)
+
+    const constelationStars = stars
+      .filter(star => constellationKeys.includes(star.constellation))
+      .map(star => star)
+      return constelationStars
+
+    // Annotation:8
     // Write your annotation here as a comment
+
+    // constellations is and object of objects with arrays as values.
+    // stars is an array of objects
+    // we want to compare the arrays of stars in the constellations objects with the star objects
+    // since the arrays of stars in the constellation objects only list the names of the stars, we would need to see the star objects name is included within the array of stars in each constellation object
+    //since the constellations are objects within and object we would need to dig two levels deep to be able to acess the arrays of values for stars
+    // then we would need to iterate through the array of star values to compare it to the star objects name property
+
+    // with using object.keys can we go two levels deep in an object?
   },
 
   starsByColor() {
