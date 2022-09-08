@@ -6,6 +6,7 @@ const { classrooms } = require('./datasets/classrooms');
 const { breweries } = require('./datasets/breweries');
 const { nationalParks } = require('./datasets/nationalParks');
 const { weather } = require('./datasets/weather');
+const { boardGames } = require('./datasets/boardGames');
 const { instructors, cohorts } = require('./datasets/turing');
 const { bosses, sidekicks } = require('./datasets/bosses');
 const { constellations, stars } = require('./datasets/astronomy');
@@ -13,38 +14,33 @@ const { weapons, characters } = require('./datasets/ultima');
 const { dinosaurs, humans, movies } = require('./datasets/dinosaurs');
 
 
+
 // SINGLE DATASETS
 // =================================================================
 
 // DATASETS: kitties from ./datasets/kitties & puppers from ./datasets/puppers
 const kittyPrompts = {
-
   orangePetNames(animals) {
-    let orangeAnimalNames = animals
+    const orangeAnimalNames = animals
       .filter(animal=> animal.color === 'orange')
       .map(animal => animal.name);
       return orangeAnimalNames;
     },
-    // Annotation:
-    // Write your annotation here as a comment
 
   sortByAge(animals) {
-    let sortAnimalsByAge = animals
+    const sortAnimalsByAge = animals
       .sort((firstAnimal, lastAnimal) => {
         return lastAnimal.age - firstAnimal.age
       });
         return sortAnimalsByAge;   
   },
-      // Annotation:
-      // Write your annotation here as a comment
 
   growUp(animals) {
-    let ageAnimals = animals
+    const ageAnimals = animals
       .filter(animal => animal.age += 2)
       .map(animal => animal)
       return ageAnimals;
   }
-
 };
 
 
@@ -343,6 +339,22 @@ const bookPrompts = {
 
     // Annotation:
     // Write your annotation here as a comment
+  },
+
+  getBooksByYear(books, year) {
+    // return an array of objects containing all books that were
+    // published after the specified year without the author or genre data. 
+    // The published property should be changed to year for the returned books.
+    // e.g. given 1990, return
+
+    // [{ title: 'Harry Potter and the Sorcerer\'s Stone', year: 1997 },
+    //  { title: 'Life of Pi', year: 2001 },
+    //  { title: 'The Curious Incident of the Dog in the Night-Time', year: 2003 }]
+
+    /* CODE GOES HERE */
+
+    // Annotation:
+    // Write your annotation here as a comment
   }
 
 };
@@ -522,12 +534,92 @@ const breweryPrompts = {
   // e.g.
   // { name: 'Barrel Aged Nature\'s Sweater', type: 'Barley Wine', abv: 10.9, ibu: 40 }
 
+  getSingleBreweryBeerCount(breweryName) {
+    // Return a number that is the count of beers that the specified
+    // brewery has e.g.
+    // given 'Ratio Beerworks', return 5
+
+
+    /* CODE GOES HERE */
+
+    // Annotation:
+    // Write your annotation here as a comment
+  },
+
   findHighestAbvBeer() {
     const hightestABV = breweries.reduce((abvName, brewery) => {
       abvName = brewery.beers.sort((firstBeer, lastBeer) => lastBeer.abv - firstBeer.abv)
       return abvName[0]
     }, {})
     return hightestABV
+  }
+};
+
+
+// ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+
+// DATASET: weather from './datasets/boardGames
+
+const boardGamePrompts = {
+  listGames(type) {
+    // Return an array of just the names of the games within a specified type. 
+    // e.g. given an argument of "strategy", return
+    // ["Chess", "Catan", "Checkers", "Pandemic", "Battle Ship", "Azul", "Ticket to Ride"]
+
+    /* CODE GOES HERE */
+
+    // Annotation:
+    // Write your annotation here as a comment
+  },
+
+  listGamesAlphabetically(type) {
+    // Return an array of just the names of the games within a specified 
+    // type, sorted alphabetically. 
+    // e.g. given an argument of "childrens", return
+    // ["Candy Land", "Connect Four", "Operation", "Trouble"]
+
+    /* CODE GOES HERE */
+
+    // Annotation:
+    // Write your annotation here as a comment
+  },
+
+  findHighestRatedGamesByType(type) {
+    // Return an object which is the highest rated game within the specified type.
+    // e.g. given the argument of 'party', return
+    // { name: 'Codenames', rating: 7.4, maxPlayers: 8 },
+
+    /* CODE GOES HERE */
+
+    // Annotation:
+    // Write your annotation here as a comment
+  },
+
+  averageScoreByType(type) {
+    // Return the average score for the specified type.
+    // e.g. given the argument of "strategy", return 7
+    // note: do not worry about rounding your result.
+
+    /* CODE GOES HERE */
+
+    // Annotation:
+    // Write your annotation here as a comment
+  },
+
+  averageScoreByTypeAndPlayers(type, maximumPlayers) {
+    // Return the average score of any games that match the specified type
+    // and maximum number of players.
+    // e.g. given the arguments of "strategy" and 2, return 6.16666666667
+    // note: do not worry about rounding your result.
+
+    /* CODE GOES HERE */
+
+    // Annotation:
+    // Write your annotation here as a comment
   }
 };
 
@@ -681,7 +773,7 @@ const bossPrompts = {
 // DATASET: constellations, stars } from ./datasets/astronomy
 const astronomyPrompts = {
   starsInConstellations() {
-    // Return an array of all the stars that appear in any of the constellations
+    // Return an array of all the star objects that appear in any of the constellations
     // listed in the constellations object e.g.
     // [
     //   { name: 'Rigel',
@@ -693,7 +785,21 @@ const astronomyPrompts = {
     //     visualMagnitude: 0.5,
     //     constellation: 'Orion',
     //     lightYearsFromEarth: 640,
-    //     color: 'red' }
+    //     color: 'red' },
+    //   {
+    //     name: 'Achernar',
+    //     visualMagnitude: 0.46,
+    //     constellation: 'The Plow',
+    //     lightYearsFromEarth: 140,
+    //     color: 'blue'
+    //   },
+    //   {
+    //     name: 'Hadar',
+    //     visualMagnitude: 0.61,
+    //     constellation: 'The Little Dipper',
+    //     lightYearsFromEarth: 350,
+    //     color: 'blue'
+    //   }
     // ]
 
     /* CODE GOES HERE */
@@ -736,9 +842,9 @@ const astronomyPrompts = {
   },
 
   constellationsStarsExistIn() {
-    // Return an array of the names of the constellations that the brightest stars are part of e.g.
+    // Sort the stars by brightness and return an array of the star's constellation names
     // Brightest Stars are indicated by visualMagnitude - the lower the number, the brighter the star
-
+    // e.g.
     //  [ "Canis Major",
     //    "Carina",
     //    "Boötes",
@@ -935,5 +1041,6 @@ module.exports = {
   nationalParksPrompts,
   weatherPrompts,
   bookPrompts,
-  dinosaurPrompts
+  dinosaurPrompts,
+  boardGamePrompts,
 };
