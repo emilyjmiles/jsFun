@@ -1,0 +1,21 @@
+{
+  "name": "jsFun",
+  "version": "1.0.0",
+  "description": "Practice problems for JavaScript Fundamentals",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require mocha-clean",
+    "testPrototypes": "./node_modules/mocha/bin/mocha --recursive prototypes/test/*-test.js --require mocha-clean",
+    "testScope": "./node_modules/mocha/bin/mocha --recursive scope/test/scope-test.js --require mocha-clean"
+  },
+  "keywords": [
+    "js"
+  ],
+  "author": "Turing School of Software and Design",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^8.2.1",
+    "mocha-clean": "^1.0.0"
+  }
+}
