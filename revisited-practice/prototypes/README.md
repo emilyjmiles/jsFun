@@ -15,7 +15,7 @@ In order to be successful when working with prototype methods, you'll need to ha
 
 In the [prototypes/codeFiles](https://github.com/emilyjmiles/jsFun/tree/main/revisited-practice/prototypes/codeFiles) directory, you'll find several files named after the dataset they will be utilizing. Each file contains prompts for how to manipulate the data to pass the tests in the corresponding test file.
 
-For example, the `kitty-puppers-code.js` file and uses both the `prototypes/datasets/kitties.js` and `prototypes/datasets/puppers.js`. As you work through the methods in this file, it will help to switch your text editor layout to display 2 files at once - one for the dataset you're currently working with, and one for the prompts to be solved.
+For example, the `kitty-puppers-code.js` file uses both the `prototypes/datasets/kitties.js` and `prototypes/datasets/puppers.js`. As you work through the methods in this file, it will help to switch your text editor layout to display 2 files at once - one for the dataset you're currently working with, and one for the prompts to be solved.
 
 Each prompt has an explanation of what needs to be accomplished with each method and what the final output should look like.
 
