@@ -34,9 +34,11 @@ This repo contains practice exercises for the fundamental JavaScript concepts of
 
 # Getting Started
 
-You can find the original [Turing School of Software and Design](https://turing.edu/) repo [here](https://github.com/turingschool-examples/jsFun) and follow the instructions below to get started.
+## Original Repo
 
-### Installation
+You can find the original [Turing School of Software and Design](https://turing.edu/) repo [here](https://github.com/turingschool-examples/jsFun) and follow the instructions below to work through the problem sets on your own.
+
+### Installation of the Original Incomplete Repo from **Turing**
 
 1. Fork the original **Turing** repo from the link above
 
@@ -45,6 +47,20 @@ You can find the original [Turing School of Software and Design](https://turing.
 3. CD into the project directory
 
 4. Run `npm install` to install testing dependencies
+
+## This Specific Repo
+
+You can find this repo [here](https://github.com/emilyjmiles/jsFun) and follow the instructions below to view code.
+
+### Installation of this Completed Repo
+
+1. Clone down this repo
+   ```sh
+   git@github.com:emilyjmiles/jsFun.git
+   
+2. CD into the project directory you wish to view (original or revisted)
+
+3. Review that directory's README.md for instructions on running tests
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -76,10 +92,4 @@ You can find the original [Turing School of Software and Design](https://turing.
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[mdn-shield]: https://img.shields.io/badge/MDN_Web_Docs-black?style=for-the-badge&logo=mdnwebdocs&logoColor=white
-[mdn]: https://developer.mozilla.org/en-US/
 [contributors-shield]: https://img.shields.io/badge/Contributors-1-2ea44f?style=for-the-badge
-[miro]: https://miro.com/app/board/uXjVP-XsNqM=/
-[mvp]: https://docs.google.com/document/d/1Ptfo2c91jaLiTu2lmiIDEzmLHaEIdTzKzV8pYrR-Ky8/edit
-[gh project board]: https://github.com/orgs/IOTNBO-Capstone/projects/1
-[product-screenshot]: images/screenshot.png
