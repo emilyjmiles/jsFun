@@ -54,13 +54,12 @@ You can find this repo [here](https://github.com/emilyjmiles/jsFun) and follow t
 
 ### Installation of this Completed Repo
 
-1. Clone down this repo
-   ```sh
-   git@github.com:emilyjmiles/jsFun.git
+1. Clone down this repo using:
+   `git@github.com:emilyjmiles/jsFun.git`
    
 2. CD into the project directory you wish to view (original or revisted)
 
-3. Review that directory's README.md for instructions on running tests
+3. Review that directory's `README.md` for instructions on running tests
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
