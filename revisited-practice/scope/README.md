@@ -4,22 +4,21 @@ Scope is one of the most fundamental concepts of JavaScript, and is often used a
 
 In order to be successful with scope, you'll need to have a solid understanding of the following concepts:
 
-* the order in which JavaScript is read and executed
-* variable assignment vs. reassignment vs. declaration
-* the three scoping levels: global, functional and block
-* the scoping levels that var/let/const each adhere to
-* hoisting
-
+- the order in which JavaScript is read and executed
+- variable assignment vs. reassignment vs. declaration
+- the three scoping levels: global, functional and block
+- the scoping levels that var/let/const each adhere to
+- hoisting
 
 # Instructions
 
-In the scope directory, you'll see to sub-directories named codeFile and test. The codeFile/index.js is your implementation file and the test/scope-test.js is your testing suite. Each method within the codeFile/index.js represents a scope exercise you should solve. The exercises will look something like the following:
+In the scope directory, you'll see two sub-directories named [codeFile](https://github.com/emilyjmiles/jsFun/tree/main/revisited-practice/scope/codeFile) and [test](https://github.com/emilyjmiles/jsFun/tree/main/revisited-practice/scope/test). The `codeFile/index.js` is your implementation file and the `test/scope-test.js` is your testing suite. Each method within the `codeFile/index.js` represents a scope exercise you should solve. The exercises will look something like the following:
 
 ```js
-let text = 'Hello World!';
+let text = "Hello World!";
 
 function changeText() {
-  text = 'Goodbye World!';
+  text = "Goodbye World!";
 }
 
 // Log A: text
@@ -28,22 +27,20 @@ changeText();
 
 // Log B: text
 
-const result = 'REPLACE WITH YOUR RESULT HERE';
+const result = "REPLACE WITH YOUR RESULT HERE";
 return result;
-
 
 // Annotation:
 // Write your annotation here as a comment
-
 ```
 
 In order to return the result, you should replace the value of the `result` variable with an array of objects that denotes which order the `// Log` comments run, and what values they log. For example, the above exercise would be solved like so:
 
 ```js
-let text = 'Hello World!';
+let text = "Hello World!";
 
 function changeText() {
-  text = 'Goodbye World!';
+  text = "Goodbye World!";
 }
 
 // Log A: text
@@ -52,10 +49,7 @@ changeText();
 
 // Log B: text
 
-const result = [
-  { 'A': 'Hello World!' },
-  { 'B': 'Goodbye World!' }
-];
+const result = [{ A: "Hello World!" }, { B: "Goodbye World!" }];
 
 return result;
 
@@ -65,7 +59,7 @@ return result;
 // Next we invoke our `changeText` function which brings us back up to line 3. Within this function we re-assign the value of `text` to 'Goodbye World!'
 // Because there is no variable declaration for `text` inside our current functional scope, the reassignment will look up the scope chain, into the global scope, and reassign the value of the `text` variable we declared on line 1.
 // Now that `changeText` is finished executing, we hop back down to our last `console.log()` of 'B' which now logs 'Goodbye World!'
-``` 
+```
 
 In the event that the value of a variable would be undefined or the code would throw an error, write your answer like so:
 
@@ -78,12 +72,9 @@ In the event that the value of a variable would be undefined or the code would t
 ]
 ```
 
-
-
-
 # Resources
 
-* [Turing Scope Lesson Plan](http://frontend.turing.io/lessons/module-2/scope-and-closures.html)
-* [Understanding Scope](https://scotch.io/tutorials/understanding-scope-in-javascript)
-* [Scope & Hoisting](https://hackernoon.com/understanding-javascript-scope-1d4a74adcdf5)
-* [Scope Video](https://www.youtube.com/watch?v=SBjf9-WpLac)
+- [Turing Scope Lesson Plan](http://frontend.turing.io/lessons/module-2/scope-and-closures.html)
+- [Understanding Scope](https://scotch.io/tutorials/understanding-scope-in-javascript)
+- [Scope & Hoisting](https://hackernoon.com/understanding-javascript-scope-1d4a74adcdf5)
+- [Scope Video](https://www.youtube.com/watch?v=SBjf9-WpLac)
