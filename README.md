@@ -44,9 +44,13 @@ You can find the original [Turing School of Software and Design](https://turing.
 
 2. Clone down your forked copy
 
-3. CD into the project directory
+3. CD into the repo directory:
+
+   `cd jsFun`
 
 4. Run `npm install` to install testing dependencies
+
+5. Follow your forked repo's `README.md` for instructions on how to proceed with testing 
 
 ## This Specific Repo
 
@@ -55,11 +59,16 @@ You can find this repo [here](https://github.com/emilyjmiles/jsFun) and follow t
 ### Installation of this Completed Repo
 
 1. Clone down this repo using:
+
    `git@github.com:emilyjmiles/jsFun.git`
    
-2. CD into the project directory you wish to view (original or revisted)
+2. CD into the repo directory you wish to view (original or revisted):
 
-3. Review that directory's `README.md` for instructions on running tests
+   `cd jsFun/original-practice`  **OR**  `cd jsFun/revisited-practice`
+   
+3. Run `npm install` to install testing dependencies
+
+4. Review that directory's `README.md` for instructions on running tests
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
