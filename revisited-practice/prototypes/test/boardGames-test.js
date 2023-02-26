@@ -5,7 +5,7 @@ const { boardGames } = require('../datasets/boardGames');
 const boardGamePrompts = require('../codeFiles/boardGames-code');
 
 describe("Board Game Prompts", () => {
-  it.skip("should return a list of game titles for a given game type", () => {
+  it("should return a list of game titles for a given game type", () => {
     const strategyGames = boardGamePrompts.listGames('strategy');
     const childrensGames = boardGamePrompts.listGames('childrens');
     const partyGames = boardGamePrompts.listGames('party');
@@ -15,7 +15,7 @@ describe("Board Game Prompts", () => {
     expect(partyGames).to.deep.equal(["Werewolf", "Cards Against Humanity", "Codenames", "Sushi Go! Party", "Tsuro"]);
   });
 
-  it.skip("should return a list of game titles in alphabetical order for a given game type", () => {
+  it("should return a list of game titles in alphabetical order for a given game type", () => {
     const strategyGames = boardGamePrompts.listGamesAlphabetically('strategy');
     const childrensGames = boardGamePrompts.listGamesAlphabetically('childrens');
     const partyGames = boardGamePrompts.listGamesAlphabetically('party');
@@ -25,7 +25,7 @@ describe("Board Game Prompts", () => {
     expect(partyGames).to.deep.equal(["Cards Against Humanity", "Codenames", "Sushi Go! Party", "Tsuro", "Werewolf"]);
   });
 
-  it.skip("should return the details for the highest rated game for a given game type", () => {
+  it("should return the details for the highest rated game for a given game type", () => {
     const highestStrategy = boardGamePrompts.findHighestRatedGamesByType('strategy');
     const highestChildrens = boardGamePrompts.findHighestRatedGamesByType('childrens');
     const highestParty = boardGamePrompts.findHighestRatedGamesByType('party');
@@ -35,7 +35,7 @@ describe("Board Game Prompts", () => {
     expect(highestParty).to.deep.equal({ name: 'Codenames', rating: 7.4, maxPlayers: 8 });
   });
 
-  it.skip("should return the average rating score for of all games for a given game type", () => {
+  it("should return the average rating score for of all games for a given game type", () => {
     const avScoreStrat = boardGamePrompts.averageScoreByType('strategy');
     const avScoreChildren = boardGamePrompts.averageScoreByType('childrens');
     const avScoreParty = boardGamePrompts.averageScoreByType('party');
@@ -45,7 +45,7 @@ describe("Board Game Prompts", () => {
     expect(Math.round(avScoreParty * 100) / 100).to.equal(6.54);
   });
 
-  it.skip("should return the average rating score for games that match the given game type and maximum players", () => {
+  it("should return the average rating score for games that match the given game type and maximum players", () => {
     const avScoreStrat = boardGamePrompts.averageScoreByTypeAndPlayers('strategy', 2);
     const avScoreChildren = boardGamePrompts.averageScoreByTypeAndPlayers('childrens', 4);
     const avScoreParty = boardGamePrompts.averageScoreByTypeAndPlayers('party', 8);
